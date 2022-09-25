@@ -1,0 +1,58 @@
+div #pokeBox {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-around;
+   padding: 16px;
+}
+
+#pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    border: solid 1px;
+    border-radius: 15px;
+    width: 104px;
+    height: 112px;
+    margin: 0 5px 5px 0;
+
+}
+
+div #pokeBox #pokeNameDiv h2 { 
+    position: relative;
+    bottom: 27px;
+    width: 103px;
+    height: 24px;
+    padding: 4px 8px 4px 8px;
+    margin: 0 5px 5px 0;
+    border-radius: 0 0 15px 15px; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    color: white;    
+    text-align:center;
+    text-transform: capitalize;    
+  
+}
+
+div #pokeBox h3 {
+  
+    position: relative;
+    right:5px;   
+    top:2px;
+    margin: 0 5px 0 0;
+    text-align: end;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+
+}
+
+div #pokeBox img {
+  
+    position: relative;
+    bottom: 15px;
+}
