@@ -24,9 +24,6 @@ let steel = '#B7B9D0';
 let water = '#6493EB';
 
 
-
-
-
 async function createPokemon(pokeNumber){
 
     const pokemon = await fetchData(pokeNumber);
@@ -39,6 +36,7 @@ async function createPokemon(pokeNumber){
     const pokeNameDiv = document.createElement("div");
     poke.setAttribute("id", "pokemon");
     pokeNameDiv.setAttribute("id", "pokeNameDiv");
+    const button = document.createElement('button');
 
 
     let poketype = pokemon.types[0]["type"];
@@ -149,23 +147,26 @@ async function createPokemon(pokeNumber){
 
     }
 
-    
     pokeName.textContent = pokemon.name;
     pokeID.textContent = `#${pokemon.id}`;
     img.src = pokemon.sprites.front_default;
 
+    button.appendChild(img);
     poke.appendChild(pokeID);
-    poke.appendChild(img);   
+    poke.appendChild(button);   
     pokeNameDiv.appendChild(pokeName);
     poke.appendChild(pokeNameDiv);   
     pokeBox.appendChild(poke);
     landingPage.appendChild(pokeBox);
-    
-    
+
+    button.addEventListener('click', function(){             
+        location = "./pokeind.html";
+        number = `${pokemon.id}`;
+        location.assign("./pokeind.html#" + number);
+
+    });
 
 }
-
-// console.log(pokeNum);
 
 var pokeNumbers;
 
@@ -186,31 +187,33 @@ for (let i = list.length; i;) {
 list.length = 9;
 pokeNumbers = list;
 
+
 pokeNumbers.forEach(createPokemon);
 
+function order() {
+    let pokeNum = "";
+    pokeNum = pokeNumbers.sort((a,b) => a-b); 
+    console.log(pokeNum);
+    document.getElementById("pokeBox").innerHTML = pokeNum.forEach(createPokemon);
 
-// function order() {
-//     let pokeNum = "";
-//     pokeNum = pokeNumbers.sort((a,b) => a-b); 
-//     console.log(pokeNum);
-//     //document.getElementById("pokeBox")[0].innerHTML = pokeNum.forEach(createPokemon);
     
-// }
+}
 
-
-function search_pokemon() {
-    let input = document.querySelector("#procurar").value;
-    input = input.toLowerCase();
-    console.log = ("oi");
-//     let x = document.getElementsByClassName('animals');      
-//     for (i = 0; i < x.length; i++) { 
-//         if (!x[i].innerHTML.toLowerCase().includes(input)) {
-//             x[i].style.display="none";
-//         }
-//         else {
-//             x[i].style.display="list-item";                 
-//         }
-//     }
+const listname = [];
+async function search_pokemon() {
+    for(var i =0; i < 1; i++){
+    const pokename = createPokemon(pokeNumbers[i]);  
+    listname.push(pokename);   
+    }
+    console.log(listname);
+    let input = document.getElementById("Procurar").value;
+    input = input.toLowerCase(); 
+    let x = listname; 
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            document.getElementById("pokeBox").innerHTML = createPokemon(listname[i]);
+        }
+    }
     
  }
 

@@ -56,3 +56,17 @@ div #pokeBox img {
     position: relative;
     bottom: 15px;
 }
+
+div #pokeBox button {
+
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    
+    
+    
+
+  }

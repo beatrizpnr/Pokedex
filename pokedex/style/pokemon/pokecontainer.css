@@ -1,0 +1,18 @@
+* {
+
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+
+#pokecontainer {
+
+    display: flex;    
+    width: 100vw;
+    height: 100vh;    
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
